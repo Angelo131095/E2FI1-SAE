@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="  ext-strict"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+ 
+    <h1>HTML5-Musterformular</h1>
+    <p>Bitte geben Sie hier Ihre Daten ein und drücken auf senden:</p>
+    <form action="/html_musterform_verarb.php">
+        <!-- textfield required -->
+        <div>
+            <label for="user">* User: </label>
+            <input type="text" id="user" name="user" title="Denken Sie sich einen beliebigen Usernamen aus (min. 6 Stellen)" required="">
+            <!--type = text kann entfallen, da default-->
+        </div>
+
+        <!-- textfield optional -->
+        <div>
+            <label>Last name:
+                <input name="lastname" placeholder="Mustermann">
+            </label>
+
+        </div>
+
+        <!-- textfield type password required -->
+        <div>
+            <label>* Password:
+                <input name="pw" type="password" required="">
+            </label>
+        </div>
+
+
+        <!-- textfield type = "number" -->
+        <div>
+            <label>Weight:
+                <input name="weight" type="number" min="30" max="600" step="0.1">
+            </label>
+        </div>
+
+
+        <!-- textfield type = "date" -->
+        <div>
+            <label>Date of birth:
+                <input name="dob" type="date">
+            </label>
+        </div>
+
+
+        <!-- textfield type = "email" -->
+        <div>
+            <label>Email:
+                <input name="name" type="email">
+            </label>
+        </div>
+
+        <!-- textfield optional with pattern -->
+        <!-- doesn't work with type = number -->
+        <div>
+            <label>ZIP:
+                <input name="zip" pattern="[0-9]{5}" title="Bitte geben Sie eine 5-stellige Zahl ein!">
+            </label>
+        </div>
+
+
+        <!-- Select field (drop down) optional-->
+        <div>
+            <label>Country:
+                <select name="country">
+                    <option value="n.a">Please select Your Country...</option>
+                    <option value="GER">Germany</option>
+                    <option value="AUT">Austria</option>
+                    <option value="SWI">Switzerland</option>
+                </select>
+            </label>
+        </div>
+
+
+        <!-- Select field (drop down) required and preselected-->
+        <div>
+            <label>* Title:
+                <select name="title" required="">
+                    <option value="Mr.">Mister</option>
+                    <option value="Ms.">Miss</option>
+                    <option value="Mrs.">Mistress</option>
+                    <option value="Mx." selected="">Other</option>
+                </select>
+            </label>
+        </div>
+
+        <!-- Select field (drop down) multiple optional-->
+        <div>
+            <label>Favourites:
+                <select name="favs[]" multiple="" size="4">
+                    <option value="1">HTML</option>
+                    <option value="2">CSS</option>
+                    <option value="3">JavaScript</option>
+                    <option value="4">Typo3</option>
+                </select>
+            </label>
+        </div>
+
+
+        <!-- radio buttons group with legend required -->
+        <div>
+            <fieldset>
+                <legend>Gender:</legend>
+                <label><input type="radio" name="gender" value="m" checked="" required="">male</label><br>
+                <label><input type="radio" name="gender" value="f">female</label><br>
+                <label><input type="radio" name="gender" value="d">divers</label>
+            </fieldset>
+        </div>
+
+
+       
+
+        <!-- checkbox group (multiple) with legend  -->
+        <div>
+            <fieldset>
+                <legend>Interests:</legend>
+                <label><input type="checkbox" name="intrs" value="rwd">Resp. Web Design</label><br>
+                <label><input type="checkbox" name="intrs" value="wp">Wordpress</label><br>
+                <label><input type="checkbox" name="intrs" value="jq">JQuery</label>
+            </fieldset>
+        </div>
+
+        <!-- textarea-->
+        <label>Comment:
+            <textarea cols="20" rows="10" name="comment" placeholder="You can leave comment here"></textarea>
+        </label>
+
+
+         <!-- Checkbox  required -->
+         <div>
+            <label><input type="checkbox" name="tos" required="" title="Please accept the TOS">TOS accepted</label>
+        </div>
+
+
+        <!-- Checkbox  optional -->
+        <div>
+            <label><input type="checkbox" name="news">Subscribe for Newsletter</label>
+        </div>
+
+
+        <!-- Submit-Button-->
+        <button>Senden</button>
+
+    </form>
+
+
+<div id="syno-notification-is-installed"></div><div id="syno-nsc-ext-comp-1008" class=" x-tip-invalid" style="position: absolute; z-index: 11000; visibility: hidden; display: none;"><div class="x-tip-invalid-tl"><div class="x-tip-invalid-tr"><div class="x-tip-invalid-tc"><div class="x-tip-invalid-header x-unselectable" id="syno-nsc-ext-gen4"><span class="x-tip-invalid-header-text"></span></div></div></div></div><div class="x-tip-invalid-bwrap" id="syno-nsc-ext-gen5"><div class="x-tip-invalid-ml"><div class="x-tip-invalid-mr"><div class="x-tip-invalid-mc" id="syno-nsc-ext-gen8"><div class="x-tip-invalid-body" id="syno-nsc-ext-gen6" style="height: auto;"></div></div></div></div><div class="x-tip-invalid-bl x-panel-nofooter" id="syno-nsc-ext-gen7"><div class="x-tip-invalid-br"><div class="x-tip-invalid-bc"></div></div></div></div><div class="x-tip-anchor x-tip-anchor-top" id="syno-nsc-ext-gen9" style="z-index: 11001;"></div></div></body></html>
