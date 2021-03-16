@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regler</title>
+
+
+</head>
+<body>
+
+    <h1>Schieberegler</h1>
+    <form oninput = "wert_out.value = wert_in.value">
+        <label for = "regler">Lautstärke</label>
+        <input type = "range" name = "wert_in" id = "regler" step = "5" value = "0">
+        <output name = "wert_out" for = "regler">0</output> <br>
+        <button>Ab damit</button>
+
+    </form>
+    
+</body>
+</html>
