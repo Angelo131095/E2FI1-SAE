@@ -1,13 +1,5 @@
 
 // let netto = document.getElementsByTagName('netto')
-
-function calcBrutto() {
-    alert('test')
-    console.log('gg');
-    let netto = document.getElementsByName('netto')
-    netto = Number.
-    
-}
 document.addEventListener("DOMContentLoaded", function (event) {
     let form = document.getElementById("form");
 
@@ -15,18 +7,10 @@ document.addEventListener("DOMContentLoaded", function (event) {
         calcBrutto();
     };
 });
-// * brauchst du nicht
-// calcBrutto();
-// let form = document.getele
 
-
-// form.addEventListener('submit', (event) => {
-//     alert('test')
-//     console.log('gg');
-//     sendData();
-// });
-
-// form.onsubmit = async (e) => {
-//     alert('test')
-//     console.log('gg');
-// };
+function calcBrutto() {
+    let netto = Number.parseInt(document.getElementById('netto').value)
+    let percent = Number.parseInt(document.getElementById('percent').value)
+    let brutto = netto + (netto * (percent/100))
+    alert(brutto);
+}
