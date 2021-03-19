@@ -9,7 +9,7 @@
     </head>
     <body>
     <h1>HTML5-Musterformular</h1>
-    <form id="form">
+    <form action="#" onsubmit="return calcBrutto();">
 
         <!-- textfield type = "number" -->
         <div>
@@ -18,13 +18,16 @@
             </label><br>
             <label>Prozent:
                 <input id="percent" type="number" max="100" step="1">
-            </label>
+            </label><br>
+            <lable>Brutto:
+                <output id="brutto"></output>
+            </lable>
         </div>
 
 
 
         <!-- Submit-Button-->
-        <button type="submit">Senden</button>
+        <button>Senden</button>
 
     </form>
 </body>
