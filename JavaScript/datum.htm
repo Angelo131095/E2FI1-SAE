@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS: aktuelles Datum/Uhrzeit</title>
+    <script>
+
+
+        function zweistellig(s) {
+            while(s.toString().length < 2) {
+                s = "0" + s;
+            }
+            return s;
+        }
+
+        function dreistellig(s) {
+            while(s.toString().length < 3) {
+                s = "0" + s;
+            }
+            return s;
+        }
+
+        let d = new Date();
+        let tag = zweistellig(d.getDate());
+        let monat = zweistellig(d.getMonth() + 1); // returned 0-11 (0 ist erster Monat)
+        let jahr = d.getFullYear();
+        let stunde = zweistellig(d.getHours());
+        let minute = zweistellig(d.getMinutes());
+        let sekunde = zweistellig(d.getSeconds());
+        let millisek = dreistellig(d.getMilliseconds());
+
+        let datum_zeit = 
+            tag + "." +
+            monat + "." +
+            jahr  + " | " + 
+            stunde  + ":" +
+            minute  + ":" +
+            sekunde  + "." +
+            millisek;
+
+            document.write(datum_zeit);
+             
+
+
+    </script>
+   
+</head>
+<body>
+   
+</body>
+</html>

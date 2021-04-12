@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <script>
+        document.write("<p>appName:  " + navigator.appName + "</p>"); 
+        document.write("<p>appVersion:  " + navigator.appVersion + "</p>"); 
+        document.write("<p>userAgent:  " + navigator.userAgent + "</p>"); 
+
+        let ua =  navigator.userAgent;
+        let browser = "unbekannter Browser";
+
+        if(ua.indexOf("Mozilla/") > -1) { //steht da was drin? 
+            browser = "Firefox";
+        } else if(ua.indexOf("MSIE/") > -1) {
+            browser = "IE";
+        } else if(ua.indexOf("Opera/") > -1) {
+            browser = "Opera";
+        } else if(ua.indexOf("Chrome/") > -1) {
+            browser = "Chrome";
+        } else if(ua.indexOf("Safari/") > -1) {
+            browser = "Safari";
+        }
+        document.write(browser);
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS: Funktionen</title>
+   
+</head>
+<body>
+    <script>
+        let alter = 21;
+        if(volljaehrig(alter)) {
+            alert("volljährig");
+        } 
+        else {
+            alert("Nicht volljährig");
+        }
+
+        function volljaehrig(alter) {
+            if(alter >= 18) {
+                return true;
+            }
+            else {
+                return false;
+            }
+            alert("mich sieht man nicht mehr!");
+            // kürzer: return(alter >= 18)
+        }
+
+
+    </script>
+    
+</body>
+</html>

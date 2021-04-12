@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS: aktuelles Datum/Uhrzeit</title>
+    <script>
+        let gebTag = 12;
+        let gebMonat = 4;
+        let gebJahr = 2021;
+
+        let gd = new Date(gebTag, gebMonat, gebJahr);
+        let gd_ms = gd.getTime();
+        console.log("gd_ms: "+ gd_ms);
+        // milliseconds since Jan 1, 1970, 00:00:00.000 GMT
+        let he = new Date();
+        let he_ms = he.getTime();
+        console.log("he_ms: "+ he_ms);
+
+        let alter_ms = he_ms - gd_ms;
+        let jahr_in_ms = 365.25 * 24 * 60 * 60 * 1000;
+        let alter_j = alter_ms/jahr_in_ms; 
+        alert("Du bist fette " + alter_j + " Jahr alt!" );
+
+
+    </script>
+   
+</head>
+<body>
+   
+</body>
+</html>

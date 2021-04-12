@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS: Wiederholte Ausführung</title>
+    <script>
+
+        let id = setInterval(gibMeldungAus,200);
+        let str = "";
+        function gibMeldungAus() {
+            str += "*";
+            console.log(str);
+
+            if(str.length > 10) {
+                clearInterval(id);
+            }         
+        }
+    </script>
+   
+</head>
+<body>
+   
+</body>
+</html>
