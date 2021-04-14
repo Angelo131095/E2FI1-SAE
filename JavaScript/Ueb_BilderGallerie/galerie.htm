@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Übung 1 - Sta/WvSS</title>
+     <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <script>
+        function showDetails(nr) {
+           console.log(nr);
+            //url der main pcs aktualisieren
+            document.getElementById('main_pic').src = "img/main_" + nr + ".jpg";
+            for (let i = 1; i <= 8; i++) {
+                document.getElementById('bild_' + i).style.display = 'none';
+            }
+            //ausgewähltes capture ändern
+            document.getElementById('bild_' + nr).style.display = 'block';
+        }
+
+        // besser: HTML auch mittels JS erzeugen:
+        //createElement
+        //appendChild
+
+    </script>
+
+</head>
+
+<body>
+
+    <!-- Container Beginn -->
+    <div id="container">
+        <h2>JavaScript</h2>
+        <h3>Übung 1</h3>
+
+        <div class="thumbs">
+            <img id="1" onMouseover="showDetails(this.id)" src="img/thumb_1.jpg">
+            <img id="2" onMouseover="showDetails(this.id)" src="img/thumb_2.jpg">
+            <img id="3" onMouseover="showDetails(this.id)" src="img/thumb_3.jpg">
+            <img id="4" onMouseover="showDetails(this.id)" src="img/thumb_4.jpg">
+            <img id="5" onMouseover="showDetails(this.id)" src="img/thumb_5.jpg">
+            <img id="6" onMouseover="showDetails(this.id)" src="img/thumb_6.jpg">
+            <img id="7" onMouseover="showDetails(this.id)" src="img/thumb_7.jpg">
+            <img id="8" onMouseover="showDetails(this.id)" src="img/thumb_8.jpg">
+        </div> <!-- thumbs END -->
+
+        <div><img id = "main_pic" src="img/main_1.jpg"></div>
+
+        <div id="content">
+            <h3 class="headline">Bilder-Galerie</h3>
+
+
+            <!-- Bild 1 START -->
+            <div id="bild_1" style="display: block;">
+                <p>Bild 1</p>
+            </div>
+            <!--Bild 1  ENDE -->
+
+            <!-- Bild 2 START -->
+            <div id="bild_2" style="display: none;">
+                <p>Bild 2</p>
+            </div>
+            <!--Bild 2  ENDE -->
+
+            <!-- Bild 3 START -->
+            <div id="bild_3" style="display: none;">
+                <p>Bild 3</p>
+            </div>
+            <!--Bild 3  ENDE -->
+
+            <!-- Bild 4 START -->
+            <div id="bild_4" style="display: none;">
+                <p>Bild 4</p>
+            </div>
+            <!--Bild 4  ENDE -->
+
+            <!-- Bild 5 START -->
+            <div id="bild_5" style="display: none;">
+                <p>Bild 5</p>
+            </div>
+            <!--Bild 5  ENDE -->
+
+            <!-- Bild 6 START -->
+            <div id="bild_6" style="display: none;">
+                <p>Bild 6</p>
+            </div>
+            <!--Bild 6  ENDE -->
+
+            <!-- Bild 7 START -->
+            <div id="bild_7" style="display: none;">
+                <p>Bild 7</p>
+            </div>
+            <!--Bild 7  ENDE -->
+
+            <!-- Bild 8 START -->
+            <div id="bild_8" style="display: none;">
+                <p>Bild 8</p>
+            </div>
+            <!--Bild 8 ENDE -->
+
+        </div><!-- content End -->
+
+
+    </div>
+    <!-- Container End -->
+
+</body>
+
+</html>
