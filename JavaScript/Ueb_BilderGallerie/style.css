@@ -20,11 +20,11 @@ body {
   
 }
 
-.thumbs {
+#thumbs {
 	width:552px;
 	float:left;
 }
-.thumbs img {
+#thumbs img {
 	margin-right:3px;
 	margin-bottom:3px;
 	border: 1px solid #666;

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JavaScript Übung 1 - Sta/WvSS</title>
+    <script>
+
+        //<img id="1" onMouseover="showDetails(this.id)" src="img/thumb_1.jpg">
+        window.onload = function () {
+            //thumbs
+            for (let i = 1; i <= 8; i++) {
+                let newImg = document.createElement("img");
+                newImg.setAttribute("id", i);
+                newImg.setAttribute("src", "img/thumb_" + i + ".jpg");
+                let thumbs = document.getElementById("thumbs");
+                thumbs.appendChild(newImg);
+                newImg.addEventListener("onMouseover", showDetails);
+            }
+
+            //main_pic
+            let newImg = document.createElement("img");
+            newImg.setAttribute("id", "act_main_pic");
+            newImg.setAttribute("src", "img/main_1.jpg");
+            let mainPic = document.getElementById("main_pic");
+            mainPic.appendChild(newImg);
+           
+        }
+
+        function showDetails(nr) {
+            document.getElementById('main_pic').src = "img/main_" + nr + ".jpg";
+            for (let i = 1; i <= 8; i++) {
+                document.getElementById('bild_' + i).style.display = 'none';
+            }
+            document.getElementById('bild_' + nr).style.display = 'block';
+        }
+
+
+
+    </script>
+
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+
+    <!-- Container Beginn -->
+    <div id="container">
+        <h2>JavaScript</h2>
+        <h3>Übung 2</h3>
+
+        <div id ="thumbs">
+
+        </div> <!-- thumbs END -->
+
+        <div id="main_pic">
+
+        </div> <!-- main_pic END -->
+
+        <div id="content">
+            <h3 class="headline">Bilder-Galerie</h3>
+
+            <!-- figure captions here -->
+
+        </div><!-- content End -->
+
+
+    </div>
+    <!-- Container End -->
+
+</body>
+
+</html>
