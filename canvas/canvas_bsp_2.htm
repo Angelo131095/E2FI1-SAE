@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #myCanvas {
+        border: 2px solid black;
+    }
+</style>
+<script>
+   function move() {
+        let canvas = document.getElementById("myCanvas");       
+        let context = canvas.getContext("2d"); 
+        
+        let schritt = 0;
+        let id = window.setInterval(function() {
+            context.clearRect(0,0,context.canvas.width,context.canvas.height);
+            context.fillStyle = "red";
+            context.fillRect(schritt, 96, 80, 80);
+            schritt++;
+
+            if(schritt == 480) {
+              schritt = -80;
+            }
+            console.log(schritt);
+        },10);
+    }
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="480" height="280">
+        Ihr Browser ist zu alt!
+    </canvas>
+    <button onclick="move()">Move Your Ass</button>
+</body>
+
+</html>

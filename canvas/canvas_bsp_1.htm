@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #myCanvas {
+        border: 2px solid black;
+    }
+</style>
+<script>
+    window.onload = function() {
+        let canvas = document.getElementById("myCanvas");
+        // quasi eine Bibliothek mit Methoden zum Rendern von Grafik in das Canvas-Elememt
+        // wie ein Zeichenwerkzeug
+        let context = canvas.getContext("2d");
+
+        // Füllfarbe setzen
+        context.fillStyle = "red";
+        // Ausgefülltes Rechteck zeichnen (x,y,width,height)
+        context.fillRect(80, 20, 80, 250);
+        
+        // Füllfarbe setzen
+        context.fillStyle = "blue";
+        // Ausgefülltes Rechteck zeichnen (x,y,width,height)
+        context.fillRect(220, 170, 80, 100);
+
+        // Text-Attribute setzen
+        // Schriftfarbe
+        context.fillStyle = "white";
+        // Schriftart und Größe
+        context.font = "14px Georgia";
+        // Text und Position
+        context.fillText("Balken 1", 92, 260);
+        context.fillText("Balken 2", 232, 260);
+    }
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="400" height="270">
+        Ihr Browser ist zu alt!
+    </canvas>
+</body>
+
+</html>
