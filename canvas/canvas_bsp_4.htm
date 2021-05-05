@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #myCanvas {
+        border: 2px solid black;
+    }
+</style>
+<script>
+   function move() {
+        let canvas = document.getElementById("myCanvas");       
+        let context = canvas.getContext("2d"); 
+        let mouse = {x:0, y:0};
+        
+        canvas.addEventListener('mousemove', function(e) {
+            x = e.clientX;
+            y = e.clientY;
+        }, false);
+
+
+        
+        // Start-Koordinaten festlegen
+        let schritt_x = 0;
+        let schritt_y = 0;
+        //Richtungen festlegen 
+        //nach rechts um 1 Pixel (-1: nach links)
+        let dir_x = 1; 
+         //nach unten um 1 Pixel (-1: nach oben)
+        let dir_y = 1; 
+
+        //Radius des Kreises
+        let radius = 25;
+
+        let id = window.setInterval(function() {
+            //Zeichenfläche löschen (Tafel wischen)
+            context.clearRect(0,0,context.canvas.width,context.canvas.height);
+            context.fillStyle = "green";
+            
+            //Kreis zeichnen
+            context.beginPath();
+            //arc(x, y, radius, startWinkel, endWinkel,[uhrzeigersinn])
+            context.arc(schritt_x, schritt_y, radius, 0, 360);
+            //Kreisbogen füllen
+            context.fill();
+
+            //Mousegeführtes Rechteck zeichnen
+            context.strokeStyle = "red";
+            context.lineWidth = 3;
+            context.strokeRect(x, y, 60,60);
+            
+            schritt_x += dir_x;
+            schritt_y += dir_y;
+
+            if(schritt_x == canvas.width-radius) dir_x = -1;
+            if(schritt_y == canvas.height-radius) dir_y = -1;           
+            if(schritt_x == 0+radius) dir_x = 1;
+            if(schritt_y == 0+radius) dir_y = 1;           
+
+            //console.log(schritt_x);
+        },10);
+    }
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="myCanvas" width="500" height="300">
+        Ihr Browser ist zu alt!
+    </canvas>
+    <button onclick="move()">Move Your Ass</button>
+</body>
+
+</html>
