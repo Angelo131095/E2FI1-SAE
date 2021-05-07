@@ -3,32 +3,47 @@
 <style>
     #myCanvas {
         border: 2px solid black;
+        border-right-style: dashed;
     }
 </style>
 <script>
     function move() {
         let canvas = document.getElementById("myCanvas");
         let context = canvas.getContext("2d");
-        let x = 480;
-        let y = 20;
-        let rs = 1 // racket speed
-        document.addEventListener("keydown", function (e) {
-            if (e.keyCode == 40) y += rs; // ArrayDown
-            if (e.keyCode == 38) y -= rs; // ArrayUp
-        });
 
-        // Start-Koordinaten festlegen
-        let schritt_x = 0;
-        let schritt_y = 0;
-        //Richtungen festlegen 
-        //nach rechts um 1 Pixel (-1: nach links)
-        let dir_x = 1;
-        //nach unten um 1 Pixel (-1: nach oben)
-        let dir_y = 1;
+        // Settings
+        // Start-Koordinaten des Rackets festlegen
+        let r_x = 480; 
+        let r_y = 0;
+
+        // Sonstige Racket settings
+        let rs = 1 // racket speed
+        let rw = 20 // racket width
+        let rh = 100 // racket height
+
+        // Start-Koordinaten des Balls festlegen
+        let b_x = 0;
+        let b_y = 0;
 
         //Radius des Kreises
         let radius = 25;
+        //Speed des Balls
+        let bs = 1;
 
+        //Richtungen festlegen 
+        //nach rechts um 1 Pixel (-1: nach links)
+        let dir_b_x = 1;
+        //nach unten um 1 Pixel (-1: nach oben)
+        let dir_b_y = 1;
+
+        
+
+        document.addEventListener("keydown", function (e) {
+            if (e.keyCode == 40) r_y += rs; // ArrayDown
+            if (e.keyCode == 38) r_y -= rs; // ArrayUp
+        });
+
+       
         let id = window.setInterval(function () {
             //Zeichenfläche löschen (Tafel wischen)
             context.clearRect(0, 0, context.canvas.width, context.canvas.height);
@@ -37,33 +52,41 @@
             //Kreis zeichnen
             context.beginPath();
             //arc(x, y, radius, startWinkel, endWinkel,[uhrzeigersinn])
-            context.arc(schritt_x, schritt_y, radius, 0, 360);
+            context.arc(b_x, b_y, radius, 0, 360);
             //Kreisbogen füllen
             context.fill();
 
             //Pfeiltastengeführtes Rechteck (Racket)
             context.fillStyle = "red";
-            context.fillRect(x, y, 20, 100);
+            context.fillRect(r_x, r_y, rw, rh);
 
-            schritt_x += dir_x;
-            schritt_y += dir_y;
+            b_x += dir_b_x;
+            b_y += dir_b_y;
 
-            if (schritt_x == canvas.width - radius) dir_x = -1;
-            if (schritt_y == canvas.height - radius) dir_y = -1;
-            if (schritt_x == 0 + radius) dir_x = 1;
-            if (schritt_y == 0 + radius) dir_y = 1;
+
+            // Wand (links) und Seitenwände
+            if (b_x == radius) dir_b_x = 1;
+            if (b_y == radius) dir_b_y = 1;
+            if (b_y == canvas.height - radius) dir_b_y = -1;
+
+            //Racket (rechts)
+            if(b_x == 480-radius && b_y + radius >= r_y && b_y - radius <= r_y + rh)
+                dir_b_x = -1;
+            else if(b_x == 500 + radius)
+                clearInterval(id);    
+           
 
 
             // Koordinaten anzeigen
             // Ball
             context.fillStyle = "green";
-            context.fillText("x: " + schritt_x, 400, 280);
-            context.fillText("y: " + schritt_y, 400, 290);
+            context.fillText("x: " + b_x, 400, 280);
+            context.fillText("y: " + b_y, 400, 290);
 
             // Racket
             context.fillStyle = "red";
-            context.fillText("x: " + x, 450, 280);
-            context.fillText("y: " + y, 450, 290);
+            context.fillText("x: " + r_x, 450, 280);
+            context.fillText("y: " + r_y, 450, 290);
 
             //console.log(schritt_x);
         }, 10);

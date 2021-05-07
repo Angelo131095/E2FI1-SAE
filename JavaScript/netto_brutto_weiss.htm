@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Netto-Brutto Rechner</title>
+
+    <script>
+        function calcBruttoNetto() {
+            let nettoInout = document.getElementById('nettoInput');
+            let prozentInput = document.getElementById('prozentInput');
+            let bruttoOutput = document.getElementById('bruttoOutput');
+
+
+            bruttoOutput.value = parseFloat(nettoInout.value) * ((parseFloat(prozentInput.value) / 100) + 1);
+        }
+    </script>
+
+</head>
+
+<body>
+
+<form>
+    <label for="nettoInput"> Netto: <input type="number" id="nettoInput"> </label>
+    <br>
+    <br>
+    <label for="prozentInput"> Prozentsatz: <input type="number" id="prozentInput"></label>
+</form>
+
+<div>
+    <button onclick="calcBruttoNetto()">Nettoberag:</button>
+    <input type="number" id="bruttoOutput">
+    <!-- oder semantisch besser 
+           <output name="obruttoOutputut" id="bruttoOutput">       
+        -->
+</div>
+
+</body>
+
+</html>

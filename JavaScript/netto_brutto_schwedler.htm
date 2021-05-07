@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function calcBrutto() {
+        let netto = document.getElementById("netto").value;
+        let pSatz = document.getElementById("pSatz").value;
+
+        document.getElementById("out").value = netto * (1 + pSatz / 100);
+      }
+    </script>
+  </head>
+  <body>
+    <form onsubmit="calcBrutto(); return false">
+      <label
+        >Nettobetrag
+        <input
+          type="number"
+          name="netto"
+          id="netto"
+          step="0.01"
+          min="1"
+          value="1"
+        />
+      </label>
+      <label
+        >Prozentsatz
+        <input
+          type="number"
+          name="pSatz"
+          id="pSatz"
+          step="0.01"
+          min="1"
+          max="100"
+          value="1"
+        />
+      </label>
+      <button>Berechne Brutto</button>
+      <label>
+        Bruttobetrag
+        <input type="number" name="out" id="out" step="0.01" disabled />
+        <!-- oder semantisch besser 
+           <output name="out" id="out">       
+        -->
+      </label>
+    </form>
+  </body>
+</html>

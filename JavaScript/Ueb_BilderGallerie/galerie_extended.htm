@@ -2,8 +2,10 @@
 <html>
 
 <head>
-    <title>JavaScript Übung 1 - Sta/WvSS</title>
+    <title>JavaScript Übung Galerie Extended - Sta/WvSS</title>
     <script>
+
+        //noch überarbeiten - funktioniert nicht
 
         //<img id="1" onMouseover="showDetails(this.id)" src="img/thumb_1.jpg">
         window.onload = function () {
@@ -14,20 +16,22 @@
                 newImg.setAttribute("src", "img/thumb_" + i + ".jpg");
                 let thumbs = document.getElementById("thumbs");
                 thumbs.appendChild(newImg);
-                newImg.addEventListener("onMouseover", shobyewDetails);
+                newImg.addEventListener("mouseover", function() {
+                    showDetails(this.id);
+                }
+                );
             }
 
             //main_pic
-            let newImg = document.createElement("img");
+            newImg = document.createElement("img");
             newImg.setAttribute("id", "act_main_pic");
             newImg.setAttribute("src", "img/main_1.jpg");
             let mainPic = document.getElementById("main_pic");
             mainPic.appendChild(newImg);
-           
         }
 
         function showDetails(nr) {
-            document.getElementById('main_pic').src = "img/main_" + nr + ".jpg";
+            document.getElementById('act_main_pic').src = "img/main_" + nr + ".jpg";
             for (let i = 1; i <= 8; i++) {
                 document.getElementById('bild_' + i).style.display = 'none';
             }
@@ -49,7 +53,7 @@
         <h2>JavaScript</h2>
         <h3>Übung 2</h3>
 
-        <div id ="thumbs">
+        <div id="thumbs">
 
         </div> <!-- thumbs END -->
 

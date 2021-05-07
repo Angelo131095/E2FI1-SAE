@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lottogenerator</title>
+  <script>
+    
+    function ziehen() {
+      let lottozahlen = new Array();
+      for (let index = 0; index < 6; index++) {
+        let lottozahl = Math.floor(Math.random() * 49) + 1;
+
+        if (!lottozahlen.find((zahl) => zahl === lottozahl)) {
+          lottozahlen.push(lottozahl);
+        } else {
+          index--;
+        }
+      }
+      // lotto.sort sortiert alphabetisch => 10 ist vor 5
+      // By default, the sort method sorts elements alphabetically. 
+      // To sort numerically just add a new method which handles numeric sorts (sortNumber, shown below)
+      // https://www.w3schools.com/jsref/jsref_sort.asp
+      lottozahlen.sort(function (a, b) {
+        return a - b;
+      });
+
+      for (let index = 0; index < lottozahlen.length; index++) {
+        outputZahl = document.createElement("p");
+        outputZahl.innerText = lottozahlen[index];
+        document.body.append(outputZahl);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <button onclick="ziehen()">Ziehe Kugeln</button>
+</body>
+
+</html>

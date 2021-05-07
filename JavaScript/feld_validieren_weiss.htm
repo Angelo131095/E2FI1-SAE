@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title> Feld-Validierung</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+           let errorLabel = document.getElementById('errorLabel');
+           errorLabel.style.visibility = 'hidden';
+        });
+
+        function validate() {
+            let valueInput = document.getElementById('valueInput');
+            let errorLabel = document.getElementById('errorLabel');
+            let value = parseFloat(valueInput.value);
+
+            if (value >= 0 && value <= 100 || valueInput.value === '') {
+                valueInput.style.border = '1px solid black';
+                errorLabel.style.visibility = 'hidden';
+            } else {
+                valueInput.style.border = '4px solid red';
+                errorLabel.style.visibility = 'visible';
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+
+<div>
+    <label>Wert: <input id="valueInput" type="number" onkeyup="validate()" onchange="validate()"></label>
+    <br>
+    <label id="errorLabel">Wert muss zwischen 0 und 100 liegen</label>
+</div>
+
+</body>
+
+</html>
