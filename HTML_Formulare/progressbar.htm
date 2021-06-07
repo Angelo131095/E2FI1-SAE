@@ -1,58 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
+	<head>
+		<meta charset="utf-8" />
+		<title>Fortschrittsanzeige</title>
+		<style>
+			label::after {
+				content: ":";
+			}
+		</style>
+		<script>
+			let required = 0;
+			let formElement;
+			function init() {
+				formElement = document.forms[0].elements;
+				for (let j = 0; j < formElement.length; j++) {
+					if (formElement[j].required) {
+						required++;
+					}
+				}
+				document.getElementById("progress").max = required;
+				console.log(formElement);
+			}
+			function act_pb() {
+				let filled = 0;
+				// Submit-Button wird mitgezählt, daher hier -1
+				// alert("Anzahl der Elemente: " + count_ele);
+				for (let j = 0; j < formElement.length; j++) {
+					if (formElement[j].value != "" && formElement[j].required) {
+						filled++;
+					}
+				}
+				console.log(filled);
+				document.getElementById("progress").value = filled;
+				document.getElementById("progress_rate").innerHTML =
+					parseInt((filled / required) * 100) + " %";
+			}
+		</script>
+	</head>
 
-<head>
-    <meta charset="utf-8">
-    <title>Fortschrittsanzeige</title>
-    <style>
-        label::after {
-            content: ":";
-        }
-    </style>
-<script>
+	<body onload="init()">
+		<form onchange="act_pb()">
+			<label>Fortschritt</label>
+			<progress id="progress" value="0" max="1"></progress>
+			<span id="progress_rate"></span><br />
 
-function act_pb() {
-    // Submit-Button wird mitgezählt, daher hier -1
-    let filled = 0;
-    let count_ele = document.forms[0].elements.length - 1;
-    // alert("Anzahl der Elemente: " + count_ele);
-    for(let i = 0; i < count_ele; i++) {
-        if(document.forms[0].elements[i].value != '') {
-            filled++;
-        }
-    }
-    document.getElementById('progress').max = count_ele;
-    document.getElementById('progress').value = filled;
-    document.getElementById('progress_rate').innerHTML = parseInt((filled/count_ele) * 100) + " %";
-}
+			<label for="bname">Benutzername</label>
+			<input id="bname" name="bname" required /><br />
 
-</script>
+			<label for="email">Email</label>
+			<input id="email" name="email" required /><br />
 
-</head>
+			<label for="passwd">Passwort</label>
+			<input id="passwd" name="passwd" type="password" required /><br />
 
-<body>
-    <form onchange="act_pb()">
-        <label>Fortschritt</label>
-        <progress id="progress" value="1" max="1"></progress>
-        <span id = "progress_rate"></span><br>
+			<label for="plz">PLZ</label>
+			<input id="plz" name="plz" pattern="[0-9]{5}" required /><br />
 
-        <label for="bname">Benutzername</label>
-        <input id="bname" name="bname" required><br>
+			<label for="plz1">PLZ</label>
+			<input id="plz1" name="plz" pattern="[0-9]{5}" /><br />
 
-        <label for="email">Email</label>
-        <input id="email" name="email" required><br>
+			<label for="date">Datum</label>
+			<input type="date" name="date" id="date" required /><br />
 
-        <label for="passwd">Passwort</label>
-        <input id="passwd" name="passwd" type="password" required><br>
-
-        <label for="plz">PLZ</label>
-        <input  id="plz" name="plz" pattern="[0-9]{5}" required><br>
-
-        <label for="date">Datum</label>
-        <input type="date" name="date" id="datum" required><br>
-
-        <button>anmelden</button>
-    </form>
-</body>
-
+			<button>anmelden</button>
+		</form>
+	</body>
 </html>
